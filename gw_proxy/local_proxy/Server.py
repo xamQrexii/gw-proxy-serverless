@@ -2,11 +2,10 @@ import threading
 from http.server import HTTPServer
 
 from gw_proxy.local_proxy.Handle_Request import Handle_Request
-from osbot_utils.utils.Misc              import random_port
 
 
 class Server():
-    def __init__(self, port=None, target=None, host=None):     # todo: make this random
+    def __init__(self, port=None, target=None, host=None):
         self.port   = port
         self.host   = host
         self.target = target
@@ -15,7 +14,7 @@ class Server():
 
 
     def setup(self):
-        if self.port   is None: self.port   = random_port()
+        if self.port   is None: self.port   = 7788
         if self.host   is None: self.host   = '127.0.0.1'
         if self.target is None: self.target = 'https://httpbin.org'
         Handle_Request.proxy_target = self.target
