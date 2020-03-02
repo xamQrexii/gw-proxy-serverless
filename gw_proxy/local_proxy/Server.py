@@ -14,7 +14,7 @@ class Server():
 
 
     def setup(self):
-        if self.port   is None: self.port   = 7799
+        if self.port   is None: self.port   = 7788
         if self.host   is None: self.host   = '127.0.0.1'
         if self.target is None: self.target = 'https://httpbin.org'
         Handle_Request.proxy_target = self.target
