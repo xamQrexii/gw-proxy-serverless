@@ -8,7 +8,7 @@ from gw_proxy._to_sync.anish_agarwal.Proxy_Const import CONST_BINARY_TYPES, RESP
 
 class Http_Proxy:
 
-    def __init__(self, target, method='GET', body='', headers={}):
+    def __init__(self, target=None, method='GET', body='', headers={}):
         self.body            = body
         self.headers         = headers
         self.method          = method
@@ -23,6 +23,8 @@ class Http_Proxy:
             return self.request_get()
         elif self.method == 'POST':
             return self.request_post()
+        elif self.method == 'OPTIONS':
+            return self.request_options()
         else:
             return {'error': f'unsupported method: {self.method}'}
 
@@ -59,31 +61,43 @@ class Http_Proxy:
         """The GET http proxy API
         """
         try:
-            #self.log_request(self.path, self.method, self.headers, self.domain_prefix, self.target, self.body)
             response = requests.get(self.target, headers=self.request_headers)
             return self.parse_response(response)
-        except Exception as e:
-            return None
-            #return Saas_Base.server_error(RESPONSE_SERVER_ERROR)
+        except Exception as error:
+            return self.bad_request(error)
+
+
+    def request_options(self):
+        """The GET http proxy API
+        """
+        try:
+            response = requests.options(self.target, headers=self.request_headers)
+            return self.parse_response(response)
+        except Exception as error:
+            return self.bad_request(error)
 
     # bug: this is only supporting json payloads
     def request_post(self):
         """The POST http proxy API
         """
         try:
-            response = requests.post(self.target, data=json.dumps(self.body), headers=self.headers)
+            response = requests.post(self.target, data=self.body, headers=self.headers)
             return self.parse_response(response)
-        except Exception as e:
-            return self.bad_request(RESPONSE_SERVER_ERROR)
+        except Exception as error:
+            return self.bad_request(error)
 
     @staticmethod
     def bad_request(body):                  # todo: move to helper class
+        if type(body) is not bytes:
+            body = str(body).encode()
         return { "statusCode": 400 ,
+                 "headers"  : {}   ,        # todo: also return headers
                  "body"     : body }
 
     @staticmethod
     def server_error(body):                 # todo: move to helper class
-        return { "statusCode": 500 ,
+        return { "statusCode": 500  ,
+                 "headers"   : {}   ,       # todo: also return headers
                  "body"      : body }
 
     @staticmethod
