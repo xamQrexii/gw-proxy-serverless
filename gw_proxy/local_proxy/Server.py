@@ -14,7 +14,7 @@ class Server():
 
 
     def setup(self):
-        if self.port   is None: self.port   = 7788
+        if self.port   is None: self.port   = 7799
         if self.host   is None: self.host   = '127.0.0.1'
         if self.target is None: self.target = 'https://httpbin.org'
         Handle_Request.proxy_target = self.target
@@ -33,6 +33,7 @@ class Server():
 
     def stop(self):
         self.httpd.shutdown()
+        self.httpd.server_close()
 
     def url(self, path=''):
         return f'{self.scheme}://{self.host}:{self.port}/{path}'
