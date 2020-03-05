@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/wirefreame-6/static/css/main.039a4489.chunk.css",
+    "main.js": "/wirefreame-6/static/js/main.d6a7595e.chunk.js",
+    "main.js.map": "/wirefreame-6/static/js/main.d6a7595e.chunk.js.map",
+    "runtime-main.js": "/wirefreame-6/static/js/runtime-main.44dfbcf2.js",
+    "runtime-main.js.map": "/wirefreame-6/static/js/runtime-main.44dfbcf2.js.map",
+    "static/css/2.03d7f783.chunk.css": "/wirefreame-6/static/css/2.03d7f783.chunk.css",
+    "static/js/2.b87615a6.chunk.js": "/wirefreame-6/static/js/2.b87615a6.chunk.js",
+    "static/js/2.b87615a6.chunk.js.map": "/wirefreame-6/static/js/2.b87615a6.chunk.js.map",
+    "index.html": "/wirefreame-6/index.html",
+    "precache-manifest.d85868c411298365ba5a1e86c5c4e97d.js": "/wirefreame-6/precache-manifest.d85868c411298365ba5a1e86c5c4e97d.js",
+    "service-worker.js": "/wirefreame-6/service-worker.js",
+    "static/css/2.03d7f783.chunk.css.map": "/wirefreame-6/static/css/2.03d7f783.chunk.css.map",
+    "static/css/main.039a4489.chunk.css.map": "/wirefreame-6/static/css/main.039a4489.chunk.css.map",
+    "static/js/2.b87615a6.chunk.js.LICENSE.txt": "/wirefreame-6/static/js/2.b87615a6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.44dfbcf2.js",
+    "static/css/2.03d7f783.chunk.css",
+    "static/js/2.b87615a6.chunk.js",
+    "static/css/main.039a4489.chunk.css",
+    "static/js/main.d6a7595e.chunk.js"
+  ]
+}
